@@ -1,5 +1,5 @@
 parameters:
-  htmltopdf_path: '/usr/bin/chromium'  # MacOs: /Applications/Chromium.app/Contents/MacOS/Chromium
+  htmltopdf_path: '/usr/bin/chromium'   # MacOs: /Applications/Chromium.app/Contents/MacOS/Chromium
   htmltopdf_service_url: ''             # Should be a complete url like https://example.org/yeswiki/?PagePrincipale/pdf
   # Advanced
   # Has to comply with HeadlessChromium::createBrowser() options
@@ -9,9 +9,12 @@ parameters:
     noSandbox: true
     headless: true
     userAgent: 'YesWiki/4.0'
+    startupTimeout: 60
+    sendSyncDefaultTimeout: 10000
     customFlags:
     - '--crash-dumps-dir=/tmp'
     # debugLogger: 'php://stdout'
+  page_load_timeout: 120000 # duration before considering the pageload completed (120000ms = 2 minutes)
   # if you want to propose this website as a service for other domains
   htmltopdf_service_authorized_domains:
   #  - 'example.org'
